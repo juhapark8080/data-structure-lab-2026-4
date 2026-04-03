@@ -1,0 +1,13 @@
+﻿  main.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\string(23,1): error C2059: 구문 오류: 'namespace'
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\string(23,1): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\string(23,1): error C2447: '{': 함수 헤더가 없습니다. 이전 스타일의 형식 목록입니까?
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec04_Class_Example\Lec04_Class_Example\Music.h(49,3): error C2059: 구문 오류: '}'
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
