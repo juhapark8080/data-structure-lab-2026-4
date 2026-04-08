@@ -19,4 +19,4 @@ public:
 	bool isSquare() {
 		return width == height;
 	}
-}
+};

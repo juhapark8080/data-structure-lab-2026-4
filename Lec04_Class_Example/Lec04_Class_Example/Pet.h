@@ -31,7 +31,7 @@ class Puppy : public Pet {
 private:
 	string breed; // 1. 멤버 변수 선언 추가
 
-public: // 2. 접근 제어자를 public으로 변경
+public:
 	// 생성자
 	Puppy(string n, int a, string t, string b)
 		: Pet(n, a, t), breed(b) {
