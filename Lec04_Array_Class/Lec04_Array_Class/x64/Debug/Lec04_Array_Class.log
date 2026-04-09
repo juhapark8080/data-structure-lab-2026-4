@@ -1,0 +1,10 @@
+﻿  ArrayClass.cpp
+C:\Users\juha8\source\repos\Lec04_Array_Class\Lec04_Array_Class\ArrayClass.cpp(1,1): warning C4828: 파일에 0x385 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\Users\juha8\source\repos\Lec04_Array_Class\Lec04_Array_Class\ArrayClass.cpp(1,1): warning C4828: 파일에 0x387 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\Users\juha8\source\repos\Lec04_Array_Class\Lec04_Array_Class\ArrayClass.cpp(1,1): warning C4828: 파일에 0x388 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\Users\juha8\source\repos\Lec04_Array_Class\Lec04_Array_Class\ArrayClass.cpp(1,1): warning C4828: 파일에 0x38b 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\Users\juha8\source\repos\Lec04_Array_Class\Lec04_Array_Class\ArrayClass.cpp(1,1): warning C4828: 파일에 0x38c 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\Users\juha8\source\repos\Lec04_Array_Class\Lec04_Array_Class\ArrayClass.cpp(1,1): warning C4828: 파일에 0x38d 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\Users\juha8\source\repos\Lec04_Array_Class\Lec04_Array_Class\ArrayClass.cpp(1,1): warning C4828: 파일에 0x38f 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+C:\Users\juha8\source\repos\Lec04_Array_Class\Lec04_Array_Class\ArrayClass.cpp(1,1): warning C4828: 파일에 0x390 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 65001).
+  Lec04_Array_Class.vcxproj -> C:\Users\juha8\source\repos\Lec04_Array_Class\x64\Debug\Lec04_Array_Class.exe
