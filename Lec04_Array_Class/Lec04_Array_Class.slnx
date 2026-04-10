@@ -3,8 +3,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Car_Class/Car_Class.vcxproj" />
-  <Project Path="Complex_Class/Complex_Class.vcxproj" />
-  <Project Path="Lec04_Array_Class/Lec04_Array_Class.vcxproj" />
-  <Project Path="Polynomial_Class/Polynomial_Class.vcxproj" />
+  <Project Path="Car_Class/Car_Class.vcxproj" Id="93b89677-8c71-46b5-a3b8-896388650c05" />
+  <Project Path="Complex_Class/Complex_Class.vcxproj" Id="e7ee0835-28aa-4d98-992f-1e4aefe2badf" />
+  <Project Path="Lec04_Array_Class/Lec04_Array_Class.vcxproj" Id="67a95485-de08-41ff-9867-98cffd8de0a4" />
+  <Project Path="Polynomial_Class/Polynomial_Class.vcxproj" Id="2ac602f5-02a1-4027-87a6-d994777f241d" />
 </Solution>

@@ -1,22 +1,20 @@
 #pragma once
-#include "Car.h" // 자동차 클래스 헤더파일 포함
+#include "Car.h"    // 자동차 클래스 헤더파일 포함
 
-// 스포츠카 클래스: 자동차 클래스에 터보 기능 추가
-class SportsCar : public Car {
+// 스포츠카 클래스 (자식 클래스) : 자동차 클래스에 터보 기능 추가
+class SportsCar : public Car
+{
 public:
-    bool bTurbo; // 터보 장치 ON 여부 (true/false)
+    bool bTurbo;            // 터보 장치 ON?
 
-    SportsCar() : Car(0, "스포츠카", 1), bTurbo(false) {}
-
-    void setTurbo(bool bTur) {
-        bTurbo = bTur;
+    SportsCar(int s, char* n, int g, bool turbo) : Car(s, n, g) {   // 생성자
+        bTurbo = turbo;
     }
-    void speedUp() {
-        if (bTurbo) {
-            speed += 20; // 터보가 ON이 되어 있으면 가속이 20씩 빨리 됨
-        }
-        else {
-            Car::speedUp(); // 터보가 꺼져있으면 부모 클래스(Car)의 기존 speedUp(5씩 증가) 실행
-        }
+
+    void setTurbo(bool bTur) { bTurbo = bTur; }
+
+    void speedUp() {        // 터보가 ON이 되어 있으면 가속이 빨리됨
+        if (bTurbo) speed += 20;
+        else Car::speedUp();
     }
 };
