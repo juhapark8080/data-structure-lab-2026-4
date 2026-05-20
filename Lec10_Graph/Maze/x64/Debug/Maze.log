@@ -1,0 +1,16 @@
+﻿  main.cpp
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(5,20): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(5,10): error C2146: 구문 오류: ';'이(가) 'MAZE_SIZE' 식별자 앞에 없습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(6,10): error C2065: 'MAZE_SIZE': 선언되지 않은 식별자입니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(6,21): error C2065: 'MAZE_SIZE': 선언되지 않은 식별자입니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(15,17): error C2065: 'inr': 선언되지 않은 식별자입니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(15,21): error C2146: 구문 오류: ')'이(가) 'r' 식별자 앞에 없습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(16,1): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(16,1): error C2447: '{': 함수 헤더가 없습니다. 이전 스타일의 형식 목록입니까?
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(23,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(39,14): error C3863: 배열 형식 'char [0][0]'은(는) 할당할 수 없습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(40,8): error C2064: 항은 2개의 인수를 받아들이는 함수로 계산되지 않습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(41,8): error C2064: 항은 2개의 인수를 받아들이는 함수로 계산되지 않습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(42,8): error C2064: 항은 2개의 인수를 받아들이는 함수로 계산되지 않습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(43,8): error C2064: 항은 2개의 인수를 받아들이는 함수로 계산되지 않습니다.
+C:\Users\USER\Documents\data-structure-lab-2026-4\Lec10_Graph\Maze\main.cpp(47,1): error C2036: 'char [0][0]': 알 수 없는 크기입니다.
