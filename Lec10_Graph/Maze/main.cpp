@@ -1,107 +1,141 @@
-#include "Location2d.h"
+#include <stdio.h>
 #include <stack>
 #include <deque>
-#include <cstdio>
+#include "Location2d.h"
 using namespace std;
 
 const int MAZE_SIZE = 6;
+
 char map[MAZE_SIZE][MAZE_SIZE] = {
-	{'1', '1', '1', '1', '1', '1'},
-	{'e', '0', '1', '0', '0', '1'},
-	{'1', '0', '0', '0', '1', '1'},
-	{'1', '0', '1', '0', '1', '1'},
-	{'1', '0', '1', '0', '0', 'x'},
-	{'1', '1', '1', '1', '1', '1'},
+    {'1', '1', '1', '1', '1', '1'},
+    {'e', '0', '1', '0', '0', '1'},
+    {'1', '0', '0', '0', '1', '1'},
+    {'1', '0', '1', '0', '1', '1'},
+    {'1', '0', '1', '0', '0', 'x'},
+    {'1', '1', '1', '1', '1', '1'},
 };
 
 bool isValidLoc(int r, int c)
 {
-	if (r < 0 || c < 0 || r >= MAZE_SIZE || c >= MAZE_SIZE) return false;
-	else return map[r][c] == '0' || map[r][c] == 'x';
+    if (r < 0 || c < 0 || r >= MAZE_SIZE || c >= MAZE_SIZE) return false;
+    else return map[r][c] == '0' || map[r][c] == 'x';
+}
 
-}  
 
+int main()
+{
+    int select;
 
-void main() {
-	int ds_num;
-	printf("DFS µ•¿Ã≈Õ ±∏¡∂ ∂Û¿Ã∫Í∑Ø∏Æ º±≈√: 1)stack, 2)deque \n");
-	scanf_s("%d", &ds_num);
+    printf("ÎØ∏Î°ú ÌÉêÏÉâ Î∞©Î≤ï ÏÑ†ÌÉù\n");
+    printf("1. StackÏùÑ Ïù¥Ïö©Ìïú DFS\n");
+    printf("2. DequeÎ•º StackÏ≤òÎüº Ïù¥Ïö©Ìïú DFS\n");
+    printf("3. DequeÎ•º QueueÏ≤òÎüº Ïù¥Ïö©Ìïú BFS\n");
+    printf("ÏÑ†ÌÉù: ");
+    scanf_s("%d", &select);
 
-	stack<Location2D> locStack;
-	Location2D entry(1, 0);
-	locStack.push(entry);
+    Location2D entry(1, 0);
 
-	deque<Location2D> locDeque;
-	locDeque.push_front(entry);
+    switch (select) {
+    case 1:
+    {
+        stack<Location2D> locStack;
+        locStack.push(entry);
 
-	deque<Location2D> locDequeBFS;
-	locDequeBFS.push_back(entry);
+        while (locStack.empty() == false) {
+            Location2D here = locStack.top();
+            locStack.pop();
 
-	switch (ds_num) {
-	case 1:
+            int r = here.row;
+            int c = here.col;
 
-		while (locStack.empty() == false) {
-			Location2D here = locStack.top();
-			locStack.pop();
+            printf("(%d,%d) ", r, c);
 
-			int r = here.row, c = here.col;
-			printf("(%d,%d) ", r, c);
-			if (map[r][c] == 'x') {
-				printf(" πÃ∑Œ ≈Ωªˆ º∫∞¯\n");
-				return;
-			}
-			else {
-				map[r][c] = '.';
-				if (isValidLoc(r - 1, c)) locStack.push(Location2D(r - 1, c));
-				if (isValidLoc(r + 1, c)) locStack.push(Location2D(r + 1, c));
-				if (isValidLoc(r, c - 1)) locStack.push(Location2D(r, c - 1));
-				if (isValidLoc(r, c + 1)) locStack.push(Location2D(r, c + 1));
-			}
-		}
-		printf("πÃ∑Œ ≈Ωªˆ Ω«∆–\n");
-		break;
-	case 2:
+            if (map[r][c] == 'x') {
+                printf("ÎØ∏Î°ú ÌÉêÏÉâ ÏÑ±Í≥µ\n");
+                return 0;
+            }
+            else {
+                map[r][c] = '.';
 
-		while (locDeque.empty() == false) {
-			Location2D here = locDeque.front();
-			locDeque.pop_front();
+                if (isValidLoc(r - 1, c)) locStack.push(Location2D(r - 1, c));
+                if (isValidLoc(r + 1, c)) locStack.push(Location2D(r + 1, c));
+                if (isValidLoc(r, c - 1)) locStack.push(Location2D(r, c - 1));
+                if (isValidLoc(r, c + 1)) locStack.push(Location2D(r, c + 1));
+            }
+        }
 
-			int r = here.row, c = here.col;
-			printf("(%d,%d) ", r, c);
-			if (map[r][c] == 'x') {
-				printf(" πÃ∑Œ ≈Ωªˆ º∫∞¯\n");
-				return;
-			}
+        printf("ÎØ∏Î°ú ÌÉêÏÉâ Ïã§Ìå®\n");
+        break;
+    }
 
-			else {
-				map[r][c] = '.';
-				if (isValidLoc(r - 1, c)) locDeque.push_front(Location2D(r - 1, c));
-				if (isValidLoc(r + 1, c)) locDeque.push_front(Location2D(r + 1, c));
-				if (isValidLoc(r, c - 1)) locDeque.push_front(Location2D(r, c - 1));
-				if (isValidLoc(r, c + 1)) locDeque.push_front(Location2D(r, c + 1));
-			}
-		}
-		printf("πÃ∑Œ ≈Ωªˆ Ω«∆–\n");
+    case 2:
+    {
+        deque<Location2D> locDeque;
+        locDeque.push_front(entry);
 
-	}
+        while (locDeque.empty() == false) {
+            Location2D here = locDeque.front();
+            locDeque.pop_front();
 
-	printf("\n Deque BFS ∞Ê∑Œ: \n");
+            int r = here.row;
+            int c = here.col;
 
-	while (locDequeBFS.empty() == false) {
-		Location2D here = locDequeBFS.front();
-		locDequeBFS.pop_front();
+            printf("(%d,%d) ", r, c);
 
-		int r = here.row, c = here.col;
-		printf("(%d,%d) ", r, c);
-		if (map[r][c] == 'x') {
-			printf(" πÃ∑Œ ≈Ωªˆ º∫∞¯\n");
-		}
-		else {
-			map[r][c] = '.';
-			if (isValidLoc(r - 1, c)) locDequeBFS.push_back(Location2D(r - 1, c));
-			if (isValidLoc(r + 1, c)) locDequeBFS.push_back(Location2D(r + 1, c));
-			if (isValidLoc(r, c - 1)) locDequeBFS.push_back(Location2D(r, c - 1));
-			if (isValidLoc(r, c + 1)) locDequeBFS.push_back(Location2D(r, c + 1));
-		}
-	}
+            if (map[r][c] == 'x') {
+                printf("ÎØ∏Î°ú ÌÉêÏÉâ ÏÑ±Í≥µ\n");
+                return 0;
+            }
+            else {
+                map[r][c] = '.';
+
+                if (isValidLoc(r - 1, c)) locDeque.push_front(Location2D(r - 1, c));
+                if (isValidLoc(r + 1, c)) locDeque.push_front(Location2D(r + 1, c));
+                if (isValidLoc(r, c - 1)) locDeque.push_front(Location2D(r, c - 1));
+                if (isValidLoc(r, c + 1)) locDeque.push_front(Location2D(r, c + 1));
+            }
+        }
+
+        printf("ÎØ∏Î°ú ÌÉêÏÉâ Ïã§Ìå®\n");
+        break;
+    }
+
+    case 3:
+    {
+        deque<Location2D> locDeque;
+        locDeque.push_back(entry);
+
+        while (locDeque.empty() == false) {
+            Location2D here = locDeque.front();
+            locDeque.pop_front();
+
+            int r = here.row;
+            int c = here.col;
+
+            printf("(%d,%d) ", r, c);
+
+            if (map[r][c] == 'x') {
+                printf("ÎØ∏Î°ú ÌÉêÏÉâ ÏÑ±Í≥µ\n");
+                return 0;
+            }
+            else {
+                map[r][c] = '.';
+
+                if (isValidLoc(r - 1, c)) locDeque.push_back(Location2D(r - 1, c));
+                if (isValidLoc(r + 1, c)) locDeque.push_back(Location2D(r + 1, c));
+                if (isValidLoc(r, c - 1)) locDeque.push_back(Location2D(r, c - 1));
+                if (isValidLoc(r, c + 1)) locDeque.push_back(Location2D(r, c + 1));
+            }
+        }
+
+        printf("ÎØ∏Î°ú ÌÉêÏÉâ Ïã§Ìå®\n");
+        break;
+    }
+
+    default:
+        printf("ÏûòÎ™ªÎêú ÏÑ†ÌÉùÏûÖÎãàÎã§.\n");
+        break;
+    }
+
+    return 0;
 }

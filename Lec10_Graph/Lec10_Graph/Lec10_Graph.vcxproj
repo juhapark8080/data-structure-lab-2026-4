@@ -127,10 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="graph_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdjMatGraph.h" />
+    <ClInclude Include="HeapNode.h" />
+    <ClInclude Include="MinHeap.h" />
+    <ClInclude Include="VertexSets.h" />
+    <ClInclude Include="WGraph.h" />
+    <ClInclude Include="WGraphMST.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
