@@ -135,7 +135,9 @@
     <ClInclude Include="MinHeap.h" />
     <ClInclude Include="VertexSets.h" />
     <ClInclude Include="WGraph.h" />
+    <ClInclude Include="WGraphDijkstra.h" />
     <ClInclude Include="WGraphMST.h" />
+    <ClInclude Include="WGraphPrim.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
