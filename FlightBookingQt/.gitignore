@@ -1,0 +1,17 @@
+.vs/
+build/
+out/
+.qt/
+debug/
+release/
+Makefile
+Makefile.Debug
+Makefile.Release
+.qmake.stash
+CMakeUserPresets.json
+*.user
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
