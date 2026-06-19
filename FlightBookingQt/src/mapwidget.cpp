@@ -1,11 +1,11 @@
-﻿#include "mapwidget.h"
+#include "mapwidget.h"
 
-#include <QPainter>
 #include <QFont>
 #include <QLinearGradient>
-#include <QSizePolicy>
+#include <QPainter>
 #include <QPaintEvent>
 #include <QPen>
+#include <QSizePolicy>
 
 MapWidget::MapWidget(QWidget *parent)
     : QWidget(parent)
@@ -103,4 +103,3 @@ void MapWidget::paintEvent(QPaintEvent *event)
         painter.drawText(QRectF(point.x() - 42, point.y() + 13, 84, 22), Qt::AlignCenter, airport);
     }
 }
-

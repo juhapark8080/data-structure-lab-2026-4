@@ -1,14 +1,12 @@
-﻿#include "mainwindow.h"
+#include "mainwindow.h"
 
-#include <QGridLayout>
 #include <QAbstractItemView>
-#include <QStringList>
-#include <QTableWidgetItem>
-#include <QGroupBox>
 #include <QHeaderView>
 #include <QHBoxLayout>
 #include <QMessageBox>
 #include <QSplitter>
+#include <QStringList>
+#include <QTableWidgetItem>
 #include <QVBoxLayout>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -211,4 +209,3 @@ QString MainWindow::minutes(int value) const
 {
     return QString("%1 min").arg(value);
 }
-

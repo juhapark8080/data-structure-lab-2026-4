@@ -1,4 +1,4 @@
-﻿#ifndef FLIGHTGRAPH_H
+#ifndef FLIGHTGRAPH_H
 #define FLIGHTGRAPH_H
 
 #include <QMap>

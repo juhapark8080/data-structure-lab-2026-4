@@ -1,12 +1,11 @@
-﻿#include "flightgraph.h"
+#include "flightgraph.h"
 
 #include <QSet>
-#include <algorithm>
 #include <limits>
 
 FlightGraph::FlightGraph()
 {
-    // Hard-coded graph data replaces a real server/database for this frontend-only project.
+    // 고정된 항공편 데이터를 그래프 간선으로 저장한다.
     addFlight("Seoul", "Jeju", "Jeju Air", 78000, 70);
     addFlight("Seoul", "Busan", "Korean Air", 69000, 65);
     addFlight("Seoul", "Tokyo", "Asiana", 210000, 130);
@@ -20,7 +19,6 @@ FlightGraph::FlightGraph()
     addFlight("Shanghai", "Taipei", "China Eastern", 150000, 115);
     addFlight("Osaka", "Taipei", "Peach", 135000, 160);
 
-    // Return flights make the graph feel like a real airline network while still using fixed data.
     addFlight("Jeju", "Seoul", "Jeju Air", 82000, 70);
     addFlight("Busan", "Seoul", "Korean Air", 72000, 65);
     addFlight("Tokyo", "Seoul", "Asiana", 230000, 135);
