@@ -12,6 +12,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    // 메인 윈도우 생성 시 UI를 먼저 만들고, 그래프의 공항 데이터를 콤보박스에 넣는다.
     buildUi();
     populateAirports();
     searchDirectFlights();
@@ -19,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::buildUi()
 {
+    // QMainWindow 기반의 전체 GUI를 구성한다.
+    // 상단은 검색 조건, 왼쪽은 지도, 오른쪽은 항공편 목록과 예매 영역이다.
     setWindowTitle("Graph Flight Booking System");
     resize(1120, 720);
 
@@ -47,6 +50,7 @@ void MainWindow::buildUi()
 
     QSplitter *splitter = new QSplitter(Qt::Horizontal, this);
 
+    // MapWidget은 그래프의 노드와 간선을 시각적으로 보여주는 영역이다.
     mapWidget = new MapWidget(this);
     mapWidget->setGraph(&graph);
     splitter->addWidget(mapWidget);
@@ -62,6 +66,7 @@ void MainWindow::buildUi()
     flightTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     rightLayout->addWidget(flightTable, 3);
 
+    // 경로 탐색 결과의 전체 가격/시간과 환승 순서를 텍스트로 보여준다.
     routeSummary = new QTextEdit(this);
     routeSummary->setReadOnly(true);
     routeSummary->setMinimumHeight(130);
@@ -95,12 +100,15 @@ void MainWindow::buildUi()
     connect(cheapButton, &QPushButton::clicked, this, [this]() { showRoute(true); });
     connect(fastButton, &QPushButton::clicked, this, [this]() { showRoute(false); });
     connect(bookButton, &QPushButton::clicked, this, [this]() { bookSelectedFlight(); });
+
+    // 출발지나 도착지를 바꾸면 지도에서 선택된 공항 표시도 즉시 갱신한다.
     connect(fromComboBox, &QComboBox::currentTextChanged, this, [this]() { mapWidget->setSelectedAirports(fromComboBox->currentText(), toComboBox->currentText()); });
     connect(toComboBox, &QComboBox::currentTextChanged, this, [this]() { mapWidget->setSelectedAirports(fromComboBox->currentText(), toComboBox->currentText()); });
 }
 
 void MainWindow::populateAirports()
 {
+    // 그래프에 저장된 공항 노드 목록을 GUI 선택 박스에 넣는다.
     const QStringList names = graph.airports();
     fromComboBox->addItems(names);
     toComboBox->addItems(names);
@@ -115,6 +123,7 @@ void MainWindow::searchDirectFlights()
     const QString from = fromComboBox->currentText();
     const QString to = toComboBox->currentText();
 
+    // 직항 조회는 선택한 출발 공항의 인접 리스트에서 목적지가 같은 간선만 찾는다.
     currentFlights = graph.directFlights(from, to);
     displayFlights(currentFlights);
 
@@ -134,12 +143,15 @@ void MainWindow::showRoute(bool cheapest)
 {
     const QString from = fromComboBox->currentText();
     const QString to = toComboBox->currentText();
+
+    // 버튼 종류에 따라 가격 기준 또는 시간 기준 Dijkstra 탐색을 실행한다.
     const RouteResult route = cheapest ? graph.cheapestRoute(from, to) : graph.fastestRoute(from, to);
     displayRoute(route, cheapest ? "Cheapest route" : "Fastest route");
 }
 
 void MainWindow::displayFlights(const QVector<Flight> &flights)
 {
+    // 그래프 탐색 결과를 사용자가 비교하기 쉽도록 표 형태로 출력한다.
     flightTable->setRowCount(flights.size());
 
     for (int row = 0; row < flights.size(); ++row) {
@@ -165,6 +177,7 @@ void MainWindow::displayRoute(const RouteResult &route, const QString &title)
     currentFlights = route.flights;
     displayFlights(currentFlights);
 
+    // 경로에 포함된 항공편을 순서대로 나열하고 전체 가격/시간을 함께 보여준다.
     QStringList lines;
     lines << title;
     for (const Flight &flight : route.flights) {
@@ -190,6 +203,7 @@ void MainWindow::bookSelectedFlight()
         return;
     }
 
+    // 실제 결제 기능은 없으므로 선택한 항공편 정보를 메시지 박스로 보여주며 예매 완료를 표현한다.
     const Flight flight = currentFlights[row];
     QMessageBox::information(this, "Booking Complete",
                              QString("Booking complete!\n\n%1: %2 -> %3\nPrice: %4\nTime: %5")
